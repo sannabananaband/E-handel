@@ -1,11 +1,195 @@
 <!DOCTYPE html>
 <html lang="sv">
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Start</title>
+    <link rel="stylesheet" href="css/style.css">
+    <title>Startsida</title>
 </head>
 <body>
-    <h1>Startsida</h1>
+    <header class="header-container">
+        <img src="https://placehold.co/600x400" alt="Headerbild" class="header-img">
+        <div class="header-content"> <!-- Ny container för bilder och sökruta -->
+            <div class="head-links">
+                <a href="https://www.google.com/"><img src="https://placehold.co/40x40/orange/white" alt="Ikon 1"></a>
+                <a href="https://se.search.yahoo.com/?fr2=p:fprd,mkt:se"><img src="https://placehold.co/40x40/orange/white" alt="Ikon 2"></a>
+            </div>
+            <div class="search-box">
+                <input type="text" placeholder="Sök...">
+                <button>🔍</button>
+            </div>
+        </div>
+    </header>
+    
+    
+    <div class="menubar-container">
+        <nav class="navbar">
+            <ul class="menu">
+                <!--<li><a href="#" id="home">Hem</a></li> -->
+                <li><a href="#" id="news">Nyheter</a></li>
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="products dropbtn">Pärlat</a>
+                    <div class="dropdown-content">
+                        <a href="#">Halsband</a>
+                        <a href="#">Armband</a>
+                        <a href="#">Örhängen</a>
+                        <a href="#">Hårspännen</a>
+                        <a href="#">Diadem</a>
+                    </div>
+                </li>
+    
+                <!-- Nytt dropdown för Kategorier 1 -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="products dropbtn">Stickat</a>
+                    <div class="dropdown-content">
+                        <a href="#">Mössor</a>
+                        <a href="#">Bastumössor</a>
+                        <a href="#">Pannband</a>
+                        <a href="#">Vantar</a>
+                        <a href="#">Benvärmare</a>
+                    </div>
+                </li>
+    
+                <!-- Nytt dropdown för Kategorier 2 -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="products dropbtn">Virkat</a>
+                    <div class="dropdown-content">
+                        <a href="#">Grytlappar</a>
+                        <a href="#">Barnkläder</a>
+                        <a href="#">Mjukisdjur</a>
+                    </div>
+                </li>
+    
+                <!-- Nytt dropdown för Kategorier 3 -->
+                <li class="dropdown">
+                    <a href="javascript:void(0)" class="products dropbtn">Vävt</a>
+                    <div class="dropdown-content">
+                        <a href="#">Mattor</a>
+                        <a href="#">Löpare</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </div>
+<!-- Ny meny för skärmar mindre än 640px -->
+<div class="menubar-container-small">
+    <nav class="navbar-small">
+        <ul class="menu-small">
+            <li><a href="#" id="news-small">Nyheter</a></li>
+            <li class="dropdown-small">
+                <a href="javascript:void(0)" class="products-small dropbtn-small">Hantverk</a>
+                <div class="dropdown-content-small">
+                    <a href="#">Pärlat</a>
+                    <a href="#">Stickat</a>
+                    <a href="#">Virkat</a>
+                    <a href="#">Vävt</a>
+                </div>
+            </li>
+        </ul>
+    </nav>
+</div>
+    <main class="background">
+        <div class="content-box">
+               
+            </div>
+            <div class="grid-container">
+                <!-- Rad 1, 2 bilder -->
+                <div class="grid-row grid-1">
+                    <div class="grid-item text-only">
+                        <h1>Lorem ipsum dolor</h1>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Dolorem est similique voluptate mollitia repellendus officiis exercitationem. Numquam voluptate ipsam sunt.
+                    </div>
+                    <div class="grid-item image-1">
+                        <img src="https://placehold.co/800x500/999999/FFF" alt="Bild 1">
+                    </div>
+                </div>
+            
+                <!-- Rad 2, 3 bilder -->
+                <div class="grid-row grid-2">
+                    <div class="grid-item"><img src="https://placehold.co/600x400/B29D82/FFF" alt="Bild 4"></div>
+                    <div class="grid-item"><img src="https://placehold.co/600x400/B29D82/FFF" alt="Bild 5"></div>
+                    <div class="grid-item"><img src="https://placehold.co/600x400/B29D82/FFF" alt="Bild 5"></div>
+                </div>
+                <!-- Rad 3, 4 bilder -->
+                <div class="grid-row grid-3">
+                    <div class="grid-item">
+                        <div class="overlay-text">Nyhet</div>
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 3">
+                        <div class="product-text">Produkt 1 Beskrivning</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 6">
+                        <div class="product-text">Produkt 2 Beskrivning</div> <!-- Text under bild 2 -->
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 7">
+                        <div class="product-text">Produkt 3 Beskrivning</div> <!-- Text under bild 3 -->
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 8">
+                        <div class="product-text">Produkt 4 Beskrivning</div> <!-- Text under bild 4 -->
+                    </div>
+                </div>
+                <!-- Rad 4, 4 bilder -->
+                <div class="grid-row grid-4">
+                    <div class="grid-item">
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 7">
+                        <div class="product-text">Produkt 5 Beskrivning</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 8">
+                        <div class="product-text">Produkt 6 Beskrivning</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 9">
+                        <div class="product-text">Produkt 7 Beskrivning</div>
+                    </div>
+                    <div class="grid-item">
+                        <img src="https://placehold.co/300x400/4C4741/FFF" alt="Bild 10">
+                        <div class="product-text">Produkt 8 Beskrivning</div>
+                    </div>
+                </div>
+            <!-- Rad 5: Ikoner/informationslänkar -->
+        <div class="icon-container">
+        <a href="https://example.com/lank1" class="icon-link">
+            <img src="https://placehold.co/64x64/B8B1AB/FFF" alt="Länk 1">
+            <span class="icon-text">Snabb leverans</span>
+        </a>
+        <a href="https://example.com/lank2" class="icon-link">
+            <img src="https://placehold.co/64x64/B8B1AB/FFF" alt="Länk 2">
+            <span class="icon-text">Handgjorda produkter</span>
+        </a>
+        <a href="https://example.com/lank3" class="icon-link">
+            <img src="https://placehold.co/64x64/B8B1AB/FFF" alt="Länk 3">
+            <span class="icon-text">Unika mönster</span>
+        </a>
+        <a href="https://example.com/lank4" class="icon-link">
+            <img src="https://placehold.co/64x64/B8B1AB/FFF" alt="Länk 4">
+            <span class="icon-text">Miljövänliga material</span>
+        </a>
+        </div>
+        
+    </main>
+    <section class="menu-section">
+        <div class="menu-container">
+            <div class="menu-column">
+                <h3>Om oss</h3>
+                <ul>
+                    <li><a href="#">Vår historia</a></li>
+                    <li><a href="#">Kontakt</a></li>
+                </ul>
+            </div>
+            <div class="menu-column">
+                <h3>Mina Sidor</h3>
+                <ul>
+                    <li><a href="#">Mina ordrar</a></li>
+                    <li><a href="#">Mitt Konto</a></li>
+                </ul>
+            </div>
+        </div>
+    </section>
+ <footer class="footer">
+</footer>
 </body>
 </html>
