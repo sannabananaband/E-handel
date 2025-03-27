@@ -1,0 +1,744 @@
+/* Grundinställningar */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* 🔹 Standard-styling för stora skärmar (>=1024px) */
+.menubar-container {
+    display: flex;
+    justify-content: space-between;  /* Lägger dem på varsin sida */
+    align-items: center;
+    background: #B5B8A5;  /* Ljusgrönt fält */
+    padding: 10px 20px;
+    width: 100%;  /* Se till att den fyller hela bredden */
+}
+
+/* 🔹 Container för header */
+.header-container {
+    position: relative; /* Behövs för absolut positionering av sökrutan */
+}
+
+/* 🔹 Headerbild */
+.header-img {
+    width: 100%; /* Bilden ska alltid fylla hela sidans bredd */
+    height: 600px; /* Grundhöjd för större skärmar */
+    object-fit: cover; /* För att behålla bildens proportioner och fylla utrymmet */
+    object-position: center; /* Se till att bilden är centrerad */
+}
+/* För skärmar >=1024px (stora skärmar) */
+@media (min-width: 1024px) {
+    .header-img {
+        width: 100%;  /* Bilden ska alltid fylla hela bredden */
+        height: 600px; /* Större höjd för större skärmar */
+    }
+}
+
+/* För skärmar >=640px (små skärmar, t.ex. tablets) */
+@media (min-width: 640px) and (max-width: 1023px) {
+    .header-img {
+        width: 100%;  /* Bilden ska fylla hela bredden */
+        height: 450px; /* Minska höjden på mindre skärmar */
+    }
+}
+
+/* För skärmar <640px (mobiler) */
+@media (max-width: 639px) {
+    .header-img {
+        width: 100%;  /* Bilden ska fylla hela bredden */
+        height: 300px; /* Minska höjden på mobiler för att passa skärmen */
+    }
+}
+
+/* 🔹 Container för både ikoner och sökruta */
+.header-content {
+    position: absolute;
+    bottom: 20px; /* Justerar avståndet från botten av header-bilden */
+    right: 20px; /* Justerar avståndet från höger */
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 🔹 Sökruta */
+.search-box {
+    display: flex;
+    align-items: center;
+    background: rgba(255, 255, 255, 0.8); /* Lätt genomskinlig bakgrund */
+    padding: 10px;
+    border-radius: 5px;
+    width: 300px;
+    height: 40px;
+}
+
+/* 🔹 Sökruta input */
+.search-box input {
+    border: none;
+    padding: 5px;
+    outline: none;
+    width: 250px;
+}
+
+/* 🔹 Sökruta knapp */
+.search-box button {
+    border: none;
+    background: none;
+    cursor: pointer;
+    font-size: 18px;
+}
+
+/* 🔹 Ikoner */
+.head-links {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+}
+
+/* 🔹 Ikon-styling */
+.head-links img {
+    width: 40px;
+    height: 40px;
+    cursor: pointer;
+    transition: transform 0.3s ease;  /* Övergång för transform */
+}
+
+/* 🔹 Hover-effekt för individuell ikon */
+.head-links img:hover {
+    transform: scale(1.2);  /* Gör endast den aktuella ikonen större */
+}
+
+
+/* 🔹 Navbar meny (horisontell layout för stora skärmar) */
+.navbar .menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    padding: 10px 0;
+}
+
+.navbar .menu li {
+    list-style: none;
+}
+
+.navbar .menu a {
+    font-size: 18px;
+    text-decoration: none;
+    color: black;
+    width: 120px;
+}
+
+/* 🔹 Grundstil för meny */
+li a, .dropbtn {
+    display: inline-block;
+    color: #B5B8A5;
+    text-align: center;
+    padding: 14px 16px;
+    text-decoration: none;
+}
+
+/* 🔹 Hover-effekt för "Hem" & "Nyheter" */
+#home:hover, #news:hover {
+    background-color: #f9f9f9;
+    border-radius: 10px 10px;
+    font-weight: bold;
+}
+
+/* 🔹 Hover-effekt för "Produkter" */
+.products:hover, 
+.dropdown:hover .products { /* Håller "Produkter" markerat när dropdownen är öppen */
+    background-color: #f9f9f9;
+    border-radius: 10px 10px 0 0;
+    font-weight: bold;
+}
+
+/* 🔹 Dropdown-behållare */
+li.dropdown {
+    display: inline-block;
+    position: relative; /* Behövs för att absolut positionera dropdown-innehållet */
+}
+
+/* 🔹 Dropdown-innehåll */
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    border-radius: 0 0 10px 10px;
+    width: 120px;
+    z-index: 1;
+    box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); /* Endast skugga nedåt */
+}
+
+/* 🔹 Dropdown-alternativ */
+.dropdown-content a {
+    color: black;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: block;
+    text-align: left;
+}
+
+/* 🔹 Dropdown-alternativ hover (för "Produkter") */
+.dropdown-content a:hover {
+    background-color: #f9f9f9;
+    border-radius: 0 0 10px 10px;
+    font-weight: bold;
+    color: #4b4e39;
+}
+
+/* 🔹 Visa dropdown-innehåll vid hover + Behåll markering */
+.dropdown:hover .dropdown-content,
+.dropdown-content:hover { 
+    display: block;
+}
+
+/* 🔹 Submenu-behållare (nested dropdown) */
+.dropdown-content .dropdown-submenu {
+    display: none;
+    position: absolute;
+    left: 100%; /* Visa sub-menyn till höger om den föräldraden */
+    top: 0;
+    background-color: #f9f9f9;
+    border-radius: 0 0 10px 10px;
+    width: 120px;
+    z-index: 2; /* Se till att undermenyn hamnar ovanpå huvudmenyn */
+}
+
+/* 🔹 Submenu-alternativ */
+.dropdown-content .dropdown-submenu a {
+    padding: 10px 16px;
+}
+
+/* 🔹 Hover-effekt för submenus */
+.dropdown-content a:hover + .dropdown-submenu {
+    display: block;
+}
+
+/* 🔹 Visa submeny när hovring sker på föräldern */
+.dropdown-content > a:hover + .dropdown-submenu {
+    display: block;
+}
+
+
+/* 📱 För skärmstorlekar >=640px och <1024px (sm) */
+@media (min-width: 640px) {
+    
+    /* Sökruta */
+    .search-box {
+        width: 250px; /* Anpassad bredd för sökrutan */
+    }
+
+    /* Navbar meny (horisontell layout med mellanrum) */
+    .navbar .menu {
+        display: flex;
+        justify-content: space-around;
+        gap: 15px;
+    }
+
+    /* Dölj den lilla menyn på skärmar >=640px */
+    .menubar-container-small {
+        display: none; /* Gör den lilla menyn osynlig på större skärmar */
+    }
+}
+
+/* 📱 För skärmstorlekar <640px */
+@media (max-width: 639px) {
+
+    /* Dölj den stora menyn */
+    .menubar-container {
+        display: none;
+    }
+
+    /* Visa den lilla menyn */
+    .menubar-container-small {
+        display: block; /* Gör den lilla menyn synlig */
+        background-color: #B5B8A5; /* Sätt samma gröna bakgrundsfärg som i den stora menyn */
+        padding: 10px 0; /* Lägg till padding för att ge lite utrymme */
+    }
+
+    /* 🔹 Navbar meny för små skärmar (horisontell layout) */
+    .navbar-small .menu-small {
+        display: flex;
+        justify-content: center; /* Justera så att alternativen ligger bredvid varandra */
+        gap: 20px; /* Sätt gap mellan alternativen */
+        padding: 10px 0;
+    }
+
+    .navbar-small .menu-small li {
+        list-style: none;
+        width: auto; /* Låt varje menyval anpassas till sitt innehåll */
+        text-align: center; /* Texten ska vara centrerad */
+    }
+
+    .navbar-small .menu-small a {
+        font-size: 18px;
+        text-decoration: none;
+        color: white; /* Ändra textfärgen till vit för bättre kontrast på den gröna bakgrunden */
+        width: auto; /* Låt varje menyval anpassas efter textens bredd */
+        display: inline-block;
+        color: rgb(0, 0, 0);
+        text-align: center;
+        padding: 14px 16px;
+    }
+
+    /* 🔹 Hover-effekt för "Nyheter" & "Produkter" */
+    #news-small:hover, .products-small:hover {
+        background-color: #f9f9f9;
+        border-radius: 10px 10px;
+        font-weight: bold;
+    }
+
+    /* 🔹 Hover-effekt för "Pärlat" (dropdown) */
+    .products-small:hover, 
+    .dropdown-small:hover .products-small {
+        background-color: #f9f9f9;
+        border-radius: 10px 10px 0 0;
+        font-weight: bold;
+        width: 120px;
+    }
+
+    /* 🔹 Dropdown-behållare för små skärmar */
+    li.dropdown-small {
+        display: inline-block;
+        position: relative; /* Behövs för att absolut positionera dropdown-innehållet */
+    }
+
+    /* 🔹 Dropdown-innehåll för små skärmar */
+    .dropdown-content-small {
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        border-radius: 0 0 10px 10px;
+        width: 120px;
+        z-index: 1;
+        box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2); /* Endast skugga nedåt */
+    }
+
+    /* 🔹 Dropdown-alternativ för små skärmar */
+    .dropdown-content-small a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        text-align: left;
+    }
+
+    /* 🔹 Dropdown-alternativ hover */
+    .dropdown-content-small a:hover {
+        background-color: #f9f9f9;
+        border-radius: 0 0 10px 10px;
+        font-weight: bold;
+        color: #4b4e39;
+    }
+
+    /* 🔹 Visa dropdown-innehåll vid hover + Behåll markering */
+    .dropdown-small:hover .dropdown-content-small,
+    .dropdown-content-small:hover { 
+        display: block;
+    }
+
+    /* 🔹 Submenu-behållare (nested dropdown) för små skärmar */
+    .dropdown-content-small .dropdown-submenu-small {
+        display: none;
+        position: absolute;
+        left: 100%; /* Visa sub-menyn till höger om den föräldraden */
+        top: 0;
+        background-color: #f9f9f9;
+        border-radius: 0 0 10px 10px;
+        width: 120px;
+        z-index: 2; /* Se till att undermenyn hamnar ovanpå huvudmenyn */
+    }
+
+    /* 🔹 Submenu-alternativ för små skärmar */
+    .dropdown-content-small .dropdown-submenu-small a {
+        padding: 10px 16px;
+    }
+
+    /* 🔹 Hover-effekt för submenus */
+    .dropdown-content-small a:hover + .dropdown-submenu-small {
+        display: block;
+    }
+
+    /* 🔹 Visa submeny när hovring sker på föräldern */
+    .dropdown-content-small > a:hover + .dropdown-submenu-small {
+        display: block;
+    }
+}
+
+/* Bakgrundssektionen */
+.background {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    padding: 0; /* Tar bort extra padding */
+}
+
+/* Centrera innehållsrutan */
+.content-box {
+    background: #F9F6F1;
+    width: 100%;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    margin: 0;
+    padding-bottom: 0;
+}
+
+/* Grid-container */
+.grid-container {
+    background-color: #F9F6F1;
+    padding-bottom: 0px;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    width: 100%;
+}
+
+/* Varje rad blir ett grid */
+.grid-row {
+    display: grid;
+    gap: 15px;
+    position: relative; 
+    padding: 50px 10px; 
+}
+
+/* Anpassa antal kolumner per rad */
+.grid-1 { 
+    grid-template-columns: repeat(2, 1fr); 
+}
+
+.grid-2 { 
+    grid-template-columns: repeat(3, 1fr); 
+}
+
+.grid-3 { 
+    grid-template-columns: repeat(4, 1fr); 
+}
+
+.grid-4 { 
+    grid-template-columns: repeat(4, 1fr); 
+}  
+
+/* Radens bakgrundsfärg */
+.grid-row {
+    background: #d3c0b200;
+    border-radius: 10px;
+    padding: 30px;
+}
+
+/* Texten i bakgrunden */
+.row-text {
+    position: absolute;
+    bottom: 0px;
+    left: 20px;
+    font-size: 18px;
+    font-weight: bold;
+    color: #333;
+    z-index: 0;
+}
+
+/* Kolumner (grid-items) */
+.grid-item {
+    background: #d3c0b200;
+    border-radius: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    position: relative;
+    overflow: hidden;
+    height: auto;
+}
+
+/* Bilder i grid */
+.grid-item img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+}
+
+/* Text under bilden */
+.product-text {
+    width: 100%;
+    padding: 10px 0;
+    text-align: left;
+    background-color: rgba(255, 255, 255, 0);
+    color: rgb(0, 0, 0);
+    font-size: 14px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+/* Text inuti mörkgröna rutan */
+.grid-item::before {
+    content: attr(data-text);
+    position: absolute;
+    color: white;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: center;
+    width: 100%;
+    padding: 10px;
+    background: rgba(0, 0, 0, 0.4);
+}
+
+/* Text-only rutor (utan bild) */
+.text-only {
+    color: rgb(0, 0, 0);
+    font-size: 18px;
+    text-align: left;
+    line-height: 1.8;
+    padding: 20px;
+}
+
+/* Overlay-text ovanpå första bilden i rad 2 */
+.overlay-text {
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    background: rgba(255, 255, 255, 0.8);
+    color: black;
+    font-size: 14px;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+}
+
+/* Lägg till responsiv design */
+@media (min-width: 1024px) {
+    /* När skärmen är större än eller lika med 1024px */
+    .grid-1 {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .grid-2 {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(4, 1fr);
+    }
+}
+
+@media (max-width: 1024px) {
+    /* När skärmen är mindre än 1024px (t.ex. tablets) */
+    .grid-1 {
+        grid-template-columns: 1fr;  /* Endast en kolumn för att stacka innehållet */
+    }
+
+    /* För bild 1: använd den specifika klassen "image-1" */
+    .image-1 {
+        order: -1; /* Bild 1 kommer att hamna ovanför texten */
+    }
+
+    .grid-item {
+        flex-direction: column; /* Säkerställer att bild och text ligger ovanpå varandra */
+    }
+
+    .grid-item img {
+        max-width: 100%; /* Förhindrar att bilden blir för liten */
+    }
+
+    .grid-2 {
+        grid-template-columns: 1fr;  /* Alla tre bilder staplas */
+    }
+
+    .grid-3 {
+        grid-template-columns: repeat(2, 1fr);  /* Alla bilder staplas en efter en */
+    }
+
+    .grid-4 {
+        grid-template-columns: repeat(2, 1fr);  /* Alla bilder staplas en efter en */
+    }
+}
+
+@media (max-width: 640px) {
+    /* När skärmen är mindre än 640px (mobiler) */
+    .grid-1 {
+        grid-template-columns: 1fr;  /* Bilden fyller hela bredden */
+    }
+
+    .grid-2 {
+        display: none;
+    }
+
+    .grid-3 {
+        grid-template-columns: 1fr;  /* Bilder staplas en efter en */
+    }
+
+    .grid-4 {
+        grid-template-columns: 1fr;  /* Bilder staplas en efter en */
+    }
+}
+
+/* Container för ikoner */
+.icon-container {
+    display: flex;
+    justify-content: center; /* Centrerar ikonerna horisontellt */
+    align-items: center;
+    flex-wrap: wrap; /* Gör så att ikonerna kan brytas till en ny rad när utrymmet tar slut */
+    gap: 20px; /* Avstånd mellan varje ikon */
+    margin: 20px 0;
+}
+
+/* Stil för länkarna */
+.icon-link {
+    display: flex;
+    align-items: center;  /* Centrera ikon och text vertikalt */
+    gap: 10px;  /* Avstånd mellan ikon och text */
+    text-decoration: none; /* Tar bort länk-understrykning */
+    transition: transform 0.3s ease-in-out;
+}
+
+/* Stil för bilderna */
+.icon-link img {
+    width: 60px; /* Standardstorlek på ikoner */
+    height: auto;
+    border-radius: 10px; /* Ger lite rundade hörn */
+    transition: opacity 0.3s ease-in-out;
+}
+
+/* Stil för texten bredvid ikonen */
+.icon-text {
+    font-size: 18px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
+    white-space: nowrap; /* Förhindra att text bryter rad */
+}
+
+.icon-link:hover {
+    opacity: 0.7; /* Gör bilden lite genomskinlig vid hover */
+}
+
+
+/* Responsiv anpassning */
+
+/* För stora skärmar >= 1024px */
+@media (min-width: 1024px) {
+    .icon-container {
+        justify-content: center; /* Ikonerna centrerade */
+    }
+
+    .icon-link {
+        width: auto; /* Ikonerna får sin naturliga storlek */
+        justify-content: center;
+    }
+
+    .icon-link img {
+        width: 60px; /* Standardstorlek på ikoner */
+    }
+}
+
+/* För skärmar mellan 640px och 1024px */
+@media (min-width: 640px) and (max-width: 1024px) {
+    .icon-container {
+        justify-content: center;  /* Ikonerna centrerade */
+        gap: 20px; /* Avstånd mellan ikoner */
+    }
+
+    .icon-link {
+        width: 45%; /* Ikonerna tar upp 45% av bredden, 2 per rad */
+        justify-content: center;
+    }
+
+    .icon-link img {
+        width: 50px; /* Mindre storlek på ikoner */
+    }
+}
+
+/* För skärmar < 640px */
+@media (max-width: 640px) {
+    .icon-container {
+        display: flex;
+        flex-direction: column; /* För att ikonerna ska rada upp sig vertikalt */
+        align-items: flex-start; /* Justera alla ikoner och text till vänster */
+        gap: 10px; /* Avstånd mellan varje ikon/text-par */
+    }
+
+    .icon-link {
+        display: flex;
+        align-items: center; /* Justera ikonen och texten horisontellt */
+        width: 100%; /* Ta upp hela bredden för varje rad */
+        justify-content: flex-start; /* Placera ikonerna och texten till vänster */
+        padding-left: 30px;
+    }
+
+    .icon-link img {
+        width: 50px; /* Mindre storlek på ikoner */
+        margin-right: 10px; /* Lägger lite avstånd mellan ikon och text */
+    }
+
+    .icon-link span {
+        text-align: left; /* Texten placeras till vänster */
+    }
+}
+
+.menu-section {
+    position: relative;
+    width: 100%;
+    padding: 20px;
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    background-image: url("/bilder/bakgrundsbild2.png");
+    background-size: auto;
+    background-repeat: repeat;
+    background-position: top left;
+}
+
+.menu-section::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #5C5F4C; /* Vit bakgrund (ändra om du vill ha en annan färgton) */
+    opacity: 0.7; /* Justera transparensen */
+    z-index: 0; /* Se till att detta lager hamnar bakom texten */
+}
+
+.menu-section * {
+    position: relative;
+    z-index: 1; /* Gör så att texten inte påverkas av transparensen */
+}
+
+.menu-container {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* Två kolumner */
+    gap: 50px; /* Avstånd mellan kolumnerna */
+    max-width: 1200px; /* Begränsar innehållet */
+    width: 100%;
+    text-align: center;
+    padding: 30px;
+    border-radius: 10px; /* Rundade hörn */
+    box-shadow: 0px 0px 0px 0px rgba(0, 0, 0, 0.1);
+}
+
+.menu-column h3 {
+    font-size: 20px;
+    margin-bottom: 15px;
+}
+
+.menu-column ul {
+    list-style: none;
+    padding: 0;
+}
+
+.menu-column ul li {
+    margin: 8px 0;
+}
+
+.menu-column ul li a {
+    font-size: 16px;
+    color: rgb(0, 0, 0);
+    text-decoration: none;
+}
+
