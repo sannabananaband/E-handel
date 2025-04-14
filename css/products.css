@@ -247,6 +247,15 @@ body {
   
 }
 
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: transparent;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+
 .product-actions {
     display: flex;
     align-items: center;
