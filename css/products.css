@@ -146,6 +146,7 @@ body {
     border-radius: 8px;
   }
 
+
   @media (max-width: 1200px) {
     .product-details-container {
       grid-template-columns: 1fr 1fr; 
@@ -154,20 +155,6 @@ body {
     .product-details-container > div:first-child,
     .product-details-container > div:last-child {
       display: none;
-    }
-  }
-  
-  @media (max-width: 850px) {
-    .toggle-details {
-      display: inline-block;
-    }
-  
-    .product-details-extra {
-      display: none;
-    }
-  
-    .product-details-extra.visible {
-      display: block;
     }
   }
   
@@ -200,14 +187,49 @@ body {
         width: 100%;
       }
 
-      .toggle-details {
-        display: none !important;
-      }
-
-      .product-details-extra {
-        display: block !important;
-      }
     }
+/* -------------------TOGGLE DETAILS KNAPP------------------ */
+
+.toggle-details {
+  display: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #000;
+  cursor: pointer;
+  margin: 10px 0;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 849px) {
+  .toggle-details {
+    display: inline-block;
+  }
+
+  .product-details-extra {
+    display: none;
+  }
+
+  .product-details-extra.visible {
+    display: block;
+  }
+}
+
+
+@media (min-width: 850px) {
+  .toggle-details {
+    display: none;
+  }
+
+  .product-details-extra {
+    display: block;
+  }
+}
+
+
+
 
 /*------------------------KNAPPAR---------------------------*/
 

@@ -9,84 +9,99 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
 </head>
 <body>
 
-    <!------------------------------------------------------HUVUD---------------------------------------------------->
-   
-    <!-----------------------------NAVBAR / DROPDOWN-MENY------------------------------->
-     <div class="navbar">
-       <a href="#home">Home</a>
-       <a href="#news">News</a>
-         <div class="dropdown">
-           <button class="dropbtn">  
-             <i class="fa-solid fa-angles-down icon-pil"></i>
-           </button>
-           <div class="dropdown-content">
-             <div class="drop-head">
-               Kategorier
-             </div>   
-               <div class="row">
-                 <div class="dropcategory-column">
-                   <a href="#"><strong>Pärlat</strong></a>
-                   <a href="#" class="subitem">Halsband</a>
-                   <a href="#" class="subitem">Armband</a>
-                   <a href="#" class="subitem">Örhängen</a>
-                   <a href="#" class="subitem">Hårspännen</a>
-                   <a href="#" class="subitem">Diadem</a>
-                 </div>
-                 <div class="dropcategory-column">
-                   <a href="#"><strong>Stickat</strong></a>
-                   <a href="#" class="subitem">Mössor</a>
-                   <a href="#" class="subitem">Bastumössor</a>
-                   <a href="#" class="subitem">Pannband</a>
-                   <a href="#" class="subitem">Vantar</a>
-                   <a href="#" class="subitem">Kläder</a>
-                 </div>
-                 <div class="dropcategory-column">
-                   <a href="#"><strong>Virkat</strong></a>
-                   <a href="#" class="subitem">Grytlappar</a>
-                   <a href="#" class="subitem">Barnkläder</a>
-                   <a href="#" class="subitem">Mjukisdjur</a>
-                 </div>
-                 <div class="dropcategory-column">
-                   <a href="#"><strong>Vävt</strong></a>
-                   <a href="#" class="subitem">Mattor</a>
-                   <a href="#" class="subitem">Löpare</a>
-                 </div>
-           </div>
-         </div>
-       </div> 
-     
-     </div>
-     
-    <!-----------------------------HEADER----------------------------------->
-           <header class="header-container">
-             <img src="bilder/header-dsus.png" alt="Headerbild" class="header-img">
-    <!----------------------------------------------------------------------->   
-   
-    <!-----------------------------HEADER-CONTENT---------------------------->
-             <div class="header-content"> 
-                 <div class="head-links">
-                          
-                 <div class="search-box">
-                     <button id="search-btn">
-                         <img src="bilder/search.png" alt="Sök" class="head-icon">
-                     </button>
-                     <input type="text" id="search-input" placeholder="Sök..."/>
-                     <button id="close-btn" class="close-icon">
-                         <img src="bilder/bakåtpil.png" alt="Stäng" class="head-icon">
-                     </button>
-                 </div>       
-                 <a href="https://www.google.com/">
-                   <img src="bilder/heart.png" alt="Gillat" class="head-icon">
-               </a>
-               <a href="https://se.search.yahoo.com/?fr2=p:fprd,mkt:se">
-                   <img src="bilder/basket.png" alt="Varukorg" class="head-icon">
-               </a>
-           </div>  
-             </div>
-         </header>
+  <!------------------------------------------------------HUVUD---------------------------------------------------->
+
+ <!--------------------------NAVBAR / DROPDOWN-MENY--------------------------->
+<div class="navbar">
+  <div class="navbar-left">
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+
+      <div class="dropdown">
+        <button class="dropbtn" id="dropdownBtn">
+          <i class="fa-solid fa-angles-down icon-pil"></i>
+        </button>
+        <div class="dropdown-content" id="dropdownContent">
+            <div class="drop-head">
+              Kategorier
+            </div>   
+            <div class="row">
+              <div class="dropcategory-column">
+                <a href="#"><strong>Pärlat</strong></a>
+                <a href="#" class="subitem">Halsband</a>
+                <a href="#" class="subitem">Armband</a>
+                <a href="#" class="subitem">Örhängen</a>
+                <a href="#" class="subitem">Hårspännen</a>
+                <a href="#" class="subitem">Diadem</a>
+              </div>
+              <div class="dropcategory-column">
+                <a href="#"><strong>Stickat</strong></a>
+                <a href="#" class="subitem">Mössor</a>
+                <a href="#" class="subitem">Bastumössor</a>
+                <a href="#" class="subitem">Pannband</a>
+                <a href="#" class="subitem">Vantar</a>
+                <a href="#" class="subitem">Kläder</a>
+              </div>
+              <div class="dropcategory-column">
+                <a href="#"><strong>Virkat</strong></a>
+                <a href="#" class="subitem">Grytlappar</a>
+                <a href="#" class="subitem">Barnkläder</a>
+                <a href="#" class="subitem">Mjukisdjur</a>
+              </div>
+              <div class="dropcategory-column">
+                <a href="#"><strong>Vävt</strong></a>
+                <a href="#" class="subitem">Mattor</a>
+                <a href="#" class="subitem">Löpare</a>
+              </div>
+            </div>
+          </div>
+        </div>
+  </div>
+
+  <div></div>
+
+  <div class="navbar-right">
+    <p>Följ mig!</p>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+    </div>
+</div>
+  
+  <!-----------------------------HEADER----------------------------------->
+        <header class="header-container">
+          <div class="header-picture"></div>
+
+ <!-----------------------------HEADER-CONTENT---------------------------->
+          <div class="header-content"> 
+              <div class="head-links">
+                       
+              <div class="search-box">
+                  <button id="search-btn">
+                      <img src="bilder/search.png" alt="Sök" class="head-icon">
+                  </button>
+                  <input type="text" id="search-input" placeholder="Sök..."/>
+                  <button id="close-btn" class="close-icon">
+                      <img src="bilder/bakåtpil.png" alt="Stäng" class="head-icon">
+                  </button>
+              </div>       
+              <a href="https://www.google.com/">
+                <img src="bilder/heart.png" alt="Gillat" class="head-icon">
+            </a>
+            <a href="https://se.search.yahoo.com/?fr2=p:fprd,mkt:se">
+                <img src="bilder/basket.png" alt="Varukorg" class="head-icon">
+            </a>
+        </div>  
+          </div>
+      </header>
          
    <!--------------------------------------------UNIKT INNEHÅLL---------------------------------------->
        
@@ -165,132 +180,133 @@
           </div>
         </div>
     </main>
-<!-------------------------------------------------------FOOTER------------------------------------------------------------>   
-  <footer class="footer-container">  
+ <!-------------------------------------------------------FOOTER------------------------------------------------------------>   
+ <footer class="footer-container">  
 
-<!------------------------FOOTER-MENY - STOR SKÄRM----------------------------> 
-      <div class="footer-menu">
-        <div class="footer-menu-section">
-          <div class="footer-menu-header">Om oss</div>
-          <ul class="footer-menu-column">
-              <li><a href="#">Handarbetaren</a></li>
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#">Vanliga frågor</a></li>
-            <li><a href="#">Integritetspolicy</a></li>
-          </ul>
-        </div>
-        <div class="footer-menu-section">
-          <div class="footer-menu-header">Mina sidor</div>
-          <ul class="footer-menu-column">
-              <li><a href="#">Logga in</a></li>
-              <li><a href="#">Varukorgen</a></li>
-            <li><a href="#">Mina ordrar</a></li>
-            <li><a href="#">Favoriter</a></li>
-          </ul>
-        </div>
-      </div>
-    
-<!------------------------FOOTER-ACCORDION(MENY) - LITEN SKÄRM------------------> 
-
-      <div class="footer-accordion">
-        <div class="footer-accordion-section">
-          <div class="footer-accordion-header">Om oss
-            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+  <!------------------------FOOTER-MENY - STOR SKÄRM----------------------------> 
+        <div class="footer-menu">
+          <div class="footer-menu-section">
+            <div class="footer-menu-header">Om oss</div>
+            <ul class="footer-menu-column">
+                <li><a href="#">Handarbetaren</a></li>
+              <li><a href="#">Kontakt</a></li>
+              <li><a href="#">Vanliga frågor</a></li>
+              <li><a href="#">Integritetspolicy</a></li>
+            </ul>
           </div>
-          <ul class="footer-accordion-column">
-              <li><a href="#">Vår historia</a></li>
-            <li><a href="#">Kontakt</a></li>
-            <li><a href="#">Vanliga frågor</a></li>
-            <li><a href="#">Integritetspolicy</a></li>
-          </ul>
-        </div>
-        <div class="footer-accordion-section">
-          <div class="footer-accordion-header">Mina sidor
-            <i class="fa-solid fa-chevron-down accordion-icon"></i>
+          <div class="footer-menu-section">
+            <div class="footer-menu-header">Mina sidor</div>
+            <ul class="footer-menu-column">
+                <li><a href="#">Logga in</a></li>
+                <li><a href="#">Varukorgen</a></li>
+              <li><a href="#">Mina ordrar</a></li>
+              <li><a href="#">Favoriter</a></li>
+            </ul>
           </div>
-          <ul class="footer-accordion-column">
-              <li><a href="#">Logga in</a></li>
-              <li><a href="#">Varukorgen</a></li>
-            <li><a href="#">Mina ordrar</a></li>
-            <li><a href="#">Favoriter</a></li>
-          </ul>
         </div>
-      </div>
-    </footer>
-
-<!-------------------------------------------------------JAVASCRIPT---------------------------------------------------------->  
-
-<!------------------------HJÄRTAN PÅ PRODUKTER----------------------------> 
-
-<script>
-document.querySelectorAll(".product-heart, .product-heart-2").forEach(heart => {
-    heart.addEventListener("click", function() {
-        if (this.classList.contains("filled")) {
-            this.classList.remove("filled");
-            this.innerHTML = "♡"; 
-        } else {
-            this.classList.add("filled");
-            this.innerHTML = "❤";
-        }
-    });
-});
-</script>
-
-<!------------------------SÖKFUNKTIONEN-------------------------------> 
-<script>
-  const searchButton = document.getElementById('search-btn');
-  const searchBox = document.querySelector('.search-box');
-  const searchInput = document.getElementById('search-input');
-  const closeButton = document.getElementById('close-btn');
-
-  searchButton.addEventListener('click', function() {
-      searchBox.classList.toggle('active');
       
-      if (searchBox.classList.contains('active')) {
-          searchInput.focus();
-      }
-  });
+  <!------------------------FOOTER-ACCORDION(MENY) - LITEN SKÄRM------------------> 
 
-  closeButton.addEventListener('click', function() {
-      searchBox.classList.remove('active');
-      searchInput.value = ""; 
-  });
-</script>
-
-<!------------------------ACCORDION----------------------------> 
-<script>
-  document.addEventListener("DOMContentLoaded", function () {
-    const headers = document.querySelectorAll(".footer-accordion-header");
-
-    headers.forEach(header => {
-      header.addEventListener("click", () => {
-        const panel = header.nextElementSibling;
-
-        if (panel.classList.contains("open")) {
-          panel.style.maxHeight = null;
-          panel.classList.remove("open");
-          header.classList.remove("open");
-        } else {
-          document.querySelectorAll(".footer-accordion-column.open").forEach(openPanel => {
-            openPanel.style.maxHeight = null;
-            openPanel.classList.remove("open");
-            openPanel.previousElementSibling.classList.remove("open");
-          });
-          panel.classList.add("open");
-          header.classList.add("open");
-          panel.style.maxHeight = panel.scrollHeight + "px";
-        }
-      });
-    });
-  });
-</script>
+        <div class="footer-accordion">
+          <div class="footer-accordion-section">
+            <div class="footer-accordion-header">Om oss
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <ul class="footer-accordion-column">
+                <li><a href="#">Vår historia</a></li>
+              <li><a href="#">Kontakt</a></li>
+              <li><a href="#">Vanliga frågor</a></li>
+              <li><a href="#">Integritetspolicy</a></li>
+            </ul>
+          </div>
+          <div class="footer-accordion-section">
+            <div class="footer-accordion-header">Mina sidor
+              <i class="fa-solid fa-chevron-down accordion-icon"></i>
+            </div>
+            <ul class="footer-accordion-column">
+                <li><a href="#">Logga in</a></li>
+                <li><a href="#">Varukorgen</a></li>
+              <li><a href="#">Mina ordrar</a></li>
+              <li><a href="#">Favoriter</a></li>
+            </ul>
+          </div>
+        </div>
+      </footer>
+ <!------------------------------------------------JAVASCRIPT - CHECKOUT (UNIK)---------------------------------------------------->
 
 <!------------------------KÖPKNAPP----------------------------> 
-      <script>
-        function toggleCart(button) {
-          button.classList.toggle('active');
-        }
-      </script>
-  
+<script>
+  function toggleCart(button) {
+    button.classList.toggle('active');
+  }
+</script>
+
 </body>
 </html>
+
+<!---------------------------------------------------JAVASCRIPT ALLA SIDOR---------------------------------------------------->  
+  <!------------------------SÖKFUNKTIONEN-------------------------------> 
+  <script>
+    const searchButton = document.getElementById('search-btn');
+    const searchBox = document.querySelector('.search-box');
+    const searchInput = document.getElementById('search-input');
+    const closeButton = document.getElementById('close-btn');
+
+    searchButton.addEventListener('click', function() {
+        searchBox.classList.toggle('active');
+        
+        if (searchBox.classList.contains('active')) {
+            searchInput.focus();
+        }
+    });
+
+    closeButton.addEventListener('click', function() {
+        searchBox.classList.remove('active');
+        searchInput.value = ""; 
+    });
+  </script>
+
+  <!------------------------ACCORDION----------------------------> 
+<script>
+    document.addEventListener("DOMContentLoaded", function () {
+      const headers = document.querySelectorAll(".footer-accordion-header");
+  
+      headers.forEach(header => {
+        header.addEventListener("click", () => {
+          const panel = header.nextElementSibling;
+  
+          if (panel.classList.contains("open")) {
+            panel.style.maxHeight = null;
+            panel.classList.remove("open");
+            header.classList.remove("open");
+          } else {
+            document.querySelectorAll(".footer-accordion-column.open").forEach(openPanel => {
+              openPanel.style.maxHeight = null;
+              openPanel.classList.remove("open");
+              openPanel.previousElementSibling.classList.remove("open");
+            });
+            panel.classList.add("open");
+            header.classList.add("open");
+            panel.style.maxHeight = panel.scrollHeight + "px";
+          }
+        });
+      });
+    });
+  </script>
+<!------------------------DROPDOWN----------------------------> 
+  <script>
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdown = dropdownBtn.closest('.dropdown');
+  
+    dropdownBtn.addEventListener('click', function (event) {
+      event.stopPropagation(); 
+      dropdown.classList.toggle('active');
+    });
+  
+    document.addEventListener('click', function (event) {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  </script>
+

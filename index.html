@@ -7,6 +7,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;500;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Passions+Conflict&family=Reenie+Beanie&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Gochi+Hand&display=swap" rel="stylesheet">
     <title>Startsida</title>
 </head>
 <body>
@@ -14,17 +20,19 @@
  <!------------------------------------------------------HUVUD---------------------------------------------------->
 
  <!-----------------------------NAVBAR / DROPDOWN-MENY------------------------------->
-  <div class="navbar">
-    <a href="#home">Home</a>
-    <a href="#news">News</a>
+<div class="navbar">
+  <div class="navbar-left">
+      <a href="#home">Home</a>
+      <a href="#news">News</a>
+
       <div class="dropdown">
-        <button class="dropbtn">  
+        <button class="dropbtn" id="dropdownBtn">
           <i class="fa-solid fa-angles-down icon-pil"></i>
         </button>
-        <div class="dropdown-content">
-          <div class="drop-head">
-            Kategorier
-          </div>   
+        <div class="dropdown-content" id="dropdownContent">
+            <div class="drop-head">
+              Kategorier
+            </div>   
             <div class="row">
               <div class="dropcategory-column">
                 <a href="#"><strong>Pärlat</strong></a>
@@ -53,16 +61,23 @@
                 <a href="#" class="subitem">Mattor</a>
                 <a href="#" class="subitem">Löpare</a>
               </div>
+            </div>
+          </div>
         </div>
-      </div>
-    </div> 
-  
   </div>
+
+  <div></div>
+
+  <div class="navbar-right">
+    <p>Följ mig!</p>
+      <a href="#"><i class="fa-brands fa-instagram"></i></a>
+      <a href="#"><i class="fa-brands fa-square-facebook"></i></a>
+    </div>
+</div>
   
- <!-----------------------------HEADER----------------------------------->
+  <!-----------------------------HEADER----------------------------------->
         <header class="header-container">
-          <img src="bilder/header-dsus.png" alt="Headerbild" class="header-img">
- <!----------------------------------------------------------------------->   
+          <div class="header-picture"></div>
 
  <!-----------------------------HEADER-CONTENT---------------------------->
           <div class="header-content"> 
@@ -92,15 +107,37 @@
 <!-----------------------------INFO------------------------------->
     <main>
         
-        <div class="info-container">
-            <div class="info-box">
-                <h1>HALLOJ</h1>
-                <h2>Här kan du hitta roliga grejor å stuff</h2>
-            </div>
-            <div class="info-bild">
-                <img src="bilder/susanneommig.png" alt="Exempelbild">
-            </div>
-        </div>  
+      <div class="info-container">
+        <div class="info-box">
+          <h1>Välkommen hit!</h1>
+          <p>
+            Här kan du hitta handgjorda ting i allt från garn till snäckskal.
+            <br>Jag som ligger bakom skapelserna är en gammal kärring från Roslagen, vilket ju gör det ännu festligare. Eller hur?
+          </p>
+      
+          <div class="extra-text">
+            <p>
+              <br>Jag heter Susanne, oväntat nog, och är en av de där som alltid har något i händerna.<br>
+              <br>Jag älskar att blanda färger, material och att testa nya tekniker! Skapandet få ta sin tid, massproduktion är inte min melodi.
+              <br>Varje grej du hittar i butiken har en liten historia, ett mönster som kanske började som en idé över en kopp te, och slutade med en grytlapp, 
+              en bastumössa eller en riktigt gräslig bordslöpare.
+              <br>Det är lite snett ibland. Och lite charmigt. Och väldigt mycket gjort med hjärtat.<br>
+            </p>
+            <br><p>Så slå dig ner, scrolla runt, och se om något vill flytta hem till dig.</p>
+            <p>P.S. Jag är alltid öppen för personliga beställningar och förslag, så tveka inte att höra av dig!</p>
+            <br>
+            <p>Vänligen,</p>
+            <h2>Susanne</h2>
+          </div>
+          <button class="toggle-btn" onclick="toggleText()">Läs mer</button>
+        </div>
+        
+      
+        <div class="info-bild">
+          <img src="bilder/susanneommig.png" alt="Exempelbild">
+        </div>
+      </div>
+      
 
 <!---------------------------"SPOTS"-------------------------------->
 
@@ -110,12 +147,12 @@
                 <div class="overlay-text">Produkter</div></a>
             </div>
             <div class="category-item">
-                <a href="default.asp"><img src="bilder/bakgrund_gul.png" alt="Kategori-Bild 2">
+                <a href="default.asp"><img src="bilder/blåbakgrund.png" alt="Kategori-Bild 2">
                 <div class="overlay-text">Hantverkarna</div></a>
             </div>
             <div class="category-item">
                 <a href="default.asp"><img src="bilder/bakgrund_röd.png" alt="Kategori-Bild 3">
-                <div class="overlay-text">Följ mig!</div></a>
+                <div class="overlay-text">Om mig</div></a>
             </div>
         </div>
 
@@ -132,7 +169,7 @@
                   </div>
               <div class="product-row">
                 <div class="product-name">Kalle Kanin</div>
-                <div class="product-price">200 SEK</div>
+                <div class="product-price">375 SEK</div>
               </div>
               <div class="product-category">Virkat / Mjukisdjur</div>
           </div>
@@ -145,7 +182,7 @@
                   </div>
               <div class="product-row">
                 <div class="product-name">Omaka Grytlappar</div>
-                <div class="product-price">150 SEK</div>
+                <div class="product-price">300 SEK</div>
               </div>
               <div class="product-category">Virkat / Grytlappar</div>
           </div>
@@ -158,7 +195,7 @@
                   </div>
               <div class="product-row">
                 <div class="product-name">Tuffsig Trasmatta</div>
-                <div class="product-price">799 SEK</div>
+                <div class="product-price">900 SEK</div>
               </div>
             <div class="product-category">Vävt / Mattor</div>
             </div>
@@ -171,7 +208,7 @@
                   </div>
               <div class="product-row">
                 <div class="product-name">Blommig Spishandduk</div>
-                <div class="product-price">100 SEK</div>
+                <div class="product-price">150 SEK</div>
               </div>
               <div class="product-category">Broderat</div>
           </div>
@@ -316,7 +353,7 @@
         </div>
       </footer>
 
-  <!-------------------------------------------------------JAVASCRIPT---------------------------------------------------------->  
+  <!------------------------------------------------JAVASCRIPT - FÖRSTA SIDAN (UNIK)---------------------------------------------------->  
 
   <!------------------------HJÄRTAN PÅ PRODUKTER----------------------------> 
 
@@ -334,6 +371,17 @@
   });
 </script>
 
+<!------------------------HIDE EXTRA TEXT - INFO-BOX----------------------------> 
+<script>
+  function toggleText() {
+    const text = document.querySelector('.extra-text');
+    const btn = document.querySelector('.toggle-btn');
+    text.classList.toggle('show');
+    btn.textContent = text.classList.contains('show') ? 'Visa mindre' : 'Läs mer';
+  }
+</script>
+
+ <!---------------------------------------------------JAVASCRIPT ALLA SIDOR---------------------------------------------------->  
   <!------------------------SÖKFUNKTIONEN-------------------------------> 
 <script>
     const searchButton = document.getElementById('search-btn');
@@ -383,5 +431,24 @@
     });
   </script>
   
+<!------------------------DROPDOWN----------------------------> 
+  <script>
+    const dropdownBtn = document.getElementById('dropdownBtn');
+    const dropdown = dropdownBtn.closest('.dropdown');
+  
+    dropdownBtn.addEventListener('click', function (event) {
+      event.stopPropagation(); 
+      dropdown.classList.toggle('active');
+    });
+  
+    document.addEventListener('click', function (event) {
+      if (!dropdown.contains(event.target)) {
+        dropdown.classList.remove('active');
+      }
+    });
+  </script>
+
+
+
 </body>
 </html>

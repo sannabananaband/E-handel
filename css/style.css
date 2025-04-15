@@ -24,18 +24,26 @@ main {
 /* -------------------------------------MENY--------------------------------------------------- */
 
 /* navbar-boxarna, alltså menylänkarna utan dropdown */
-.navbar { 
-  background-color: #E8E6E1;
-  overflow: hidden;
-  background-color: none;
-  font-family: "Poppins", Sans-serif;
+.navbar {
+  display: grid;
+  grid-template-columns: auto 1fr auto; 
+  align-items: center;
+  padding: 0 20px;
+  background-color: #EAE6E1;
+  font-family: "Poppins", sans-serif;
   border-style: dashed;
-  border-width: 0px 0px 1.5px 0px;
+  border-width: 0 0 1.5px 0;
   border-color: #6B1A1A;
 }
 
+
+.navbar-left {
+  display: flex;
+  gap: 20px;
+  align-items: center;
+}
+
 .navbar a {
-  float: left;
   font-size: 20px;
   color: black;
   text-align: center;
@@ -43,6 +51,25 @@ main {
   text-decoration: none;
   position: relative;
   transition: color 0.3s ease;
+}
+
+.navbar > .navbar-left > a::after {
+  content: "";
+  position: absolute;
+  bottom: 8px; 
+  left: 0;
+  width: 0%;
+  height: 2px;
+  background-color: #6B1A1A;
+  transition: width 0.4s ease;
+}
+
+.navbar > .navbar-left > a:hover {
+  color: #6B1A1A;
+}
+
+.navbar > .navbar-left > a:hover::after {
+  width: 100%;
 }
 
 .navbar > a::after {
@@ -80,6 +107,7 @@ main {
   margin: 0;
   position: relative;
   transition: color 0.3s ease;
+  cursor: pointer;
 }
 
 .icon-pil {
@@ -134,10 +162,14 @@ main {
   width: 100%;
   left: 0;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  z-index: 3;
+  z-index: 30;
 }
 
-.dropdown:hover .dropdown-content {
+.dropdown-content {
+  display: none;
+}
+
+.dropdown.active .dropdown-content {
   display: block;
 }
 
@@ -169,6 +201,29 @@ main {
   clear: both;
 }
 
+.navbar-right {
+  display: flex;
+  gap: 5px;
+  align-items: center;
+}
+
+.navbar-right p {
+font-family: "Reenie Beanie", cursive;
+font-weight: 400;
+font-style: normal;
+font-size: 25px;
+}
+
+.navbar-right a i {
+  font-size: 22px;
+  color: black;
+  transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.navbar-right a:hover i {
+  color: #6B1A1A;
+  transform: scale(1.1);
+}
 
 @media screen and (max-width: 600px) { 
   .dropcategory-column {
@@ -179,53 +234,43 @@ main {
   .subitem {
     display: none !important;;
   }
+
+  .navbar-right p {
+    display: none;
+  }
 }
 
  /* -------------------------------------HEADER--------------------------------------------------- */
 
 /* Container för header */
 .header-container {
-    position: relative; 
+  background-color: #E8E6E1; 
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  width: 100%;
+  height: 300px;
+  margin-bottom: 20px;
 }
 
-/* Headerbild */
-.header-img {
-    width: 100%;  
-    height: 200px; 
-    padding-top: 0px;
-    margin-bottom: -180px;
-    object-fit: cover; 
-    object-position: center; 
-    z-index: 0;
+.header-picture {
+  width: 100%;
+  height: 300px;
+  background-image: url("/bilder/yes2heaDER.png"); 
+  background-size: contain; 
+  background-repeat: no-repeat;
+  background-position: center;
+  margin-bottom: 50px;
 }
 
-@media (min-width: 1024px) {
-    .header-img {
-        width: 100%;  
-        height: 350px; 
-    }
-}
-
-@media (min-width: 640px) and (max-width: 1023px) {
-    .header-img {
-        width: 100%;  
-        height: 350px; 
-    }
-}
-
-@media (max-width: 639px) {
-    .header-img {
-        width: 100%;  
-        height: 400px;
-    }
-}
 
  /* -------------------------------------HEADER-IKONER--------------------------------------------------- */
 
 /* Container för header-content */ 
 .header-content {
     position: absolute;
-    bottom: 4px;
+    bottom: -10px;
     right: 20px;
     display: flex;
     align-items: center;
@@ -233,6 +278,7 @@ main {
     gap: 20px;
     width: auto;
     height: 40px;
+    z-index: 20;
 }
 
 /* Box för ikonlänkar (Heart & Basket) */
@@ -321,12 +367,23 @@ main {
 }
 
 @media (max-width: 639px) {
+
+    .header-container {
+        height: 250px;
+    }
+   
+    .header-picture {
+        margin-bottom: -50px;
+        margin-top: -60px;
+    }
+   
     .header-content {
         gap: 15px;
         width: 100%;
         justify-content: center;
         flex-wrap: wrap;
-        padding-bottom: 50px;
+        bottom: -10px;
+        right: 10px;
     }
 
     .head-icon {
@@ -341,15 +398,16 @@ main {
  /* ------------------------INFO-CONTAINER---------------------------------- */
 
 .info-container {
-    background: #425563;
-    background-image: url('/bilder/bl%C3%A5bakgrund.png'); 
-    background-size: cover;       
-    background-position: center;  
-    background-repeat: repeat; 
+    background-color: #EAE6E1;
+    background-image: url("/bilder/papirnewnew.png"); 
+    background-size: 100px;
+    background-repeat: repeat;
+    background-position: center;
+    flex-direction: column;
     display: grid;
     width: 100%;
     height: 100%;
-    padding: 40px;
+    padding: 10px;
     gap: 10px;
     z-index: 2;
     grid-template-columns: 3fr 4fr;
@@ -363,92 +421,175 @@ main {
 .info-box, .info-bild {
     height: 100%;
     display: flex;
-    align-items: center;
+    align-items: left;
     border-radius: 8px;
     overflow: hidden;
 }
 
 .info-box {
-    background-color: #EAE6E1;
+    background: none;
     flex-direction: column;
-    padding: 15px;
+    padding: 10px;
     color: rgb(0, 0, 0);
-    border-style: solid;
-    border-width: 4px; 
-    border-color: #6B1A1A;
 }
 
+
 .info-box h1 {
-    margin-bottom: 10px;
-    font-size: 60px; 
-    font-weight: 700;
+  font-family: "Gochi Hand", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 60px;
+  color: #02021a;
 }
 
 .info-box h2 {
-    line-height: 1.5;
-    margin-top: 10px;
-    font-size: 25px; 
-    font-weight: 400;
+  font-family: "Reenie Beanie", cursive;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 55px;
+}
+
+.info-box p {
+  font-family: "Poppins", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: 18px;
+  color: #000000;
+}
+
+.extra-text {
+  display: block;
+}
+
+.toggle-btn {
+  display: none; 
 }
 
 .info-bild {
     justify-content: center;
-    border-style: dashed;
-    border-width: 4px; 
-    border-color: #6B1A1A;
+    background: none;
 }
 
 .info-bild img {
     display: flex;
-    width: 100%;
-    height: 100%;
+    max-width: 100%;
+    height: auto;
     object-fit: cover;
     display: block;
-    border-radius: 8px;
+    border-style: solid;
+    border-width: 4px; 
+    border-color: #6B1A1A;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.089);
+    border-radius: 10px;
 }
 
 @media (max-width: 1024px) {
-    .info-container {
-        height: auto;
-        padding: 10px;
-    }
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
-    .info-box {
-        padding: 10px;
-    }
+  .info-bild {
+    order: -1;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
 
-    .info-box h1 {
-        font-size: 40px; 
-    }
-    .info-box h2 {
-        font-size: 15px; 
-    }
+  .info-bild img {
+    max-width: 90%;
+    height: auto;
+    object-fit: contain;
+  }
+
+  .info-box h1 {
+    font-size: 45px;
+  }
+
+  .info-box h2 {
+    font-size: 30px;
+  }
+
+  .info-box p {
+    font-size: 16px;
+  }
 }
 
-@media (max-width: 639px) {
-    .info-container {
-        display: grid;
-        height: auto;   
-        width: 640px;
-        grid-template-columns: 1fr; 
-        grid-template-rows: auto auto; 
-    }
 
-    .info-bild {
-        order: -1;
-    }
 
-    .info-box {
-        padding: auto;
-    }
+@media (max-width: 768px) {
+  .info-container {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+  }
 
-    .info-box h1 {
-        font-size: 30px; 
-    }
-    .info-box h2 {
-        font-size: 20px; 
-    }
+  .info-bild {
+    order: -1;
+    width: 100%;
+  }
+
+  .info-bild img {
+    width: 100%;
+    height: auto;
+  }
+
+  .info-box h1 {
+    font-size: 38px;
+  }
+
+  .info-box h2 {
+    font-size: 26px;
+  }
+
+  .info-box p {
+    font-size: 15px;
+  }
+
+  .extra-text {
+    display: none;
+  }
+
+  .extra-text.show {
+    display: block;
+  }
+
+  .toggle-btn {
+    display: inline-block;
+    margin-top: 10px;
+    cursor: pointer;
+    background-color: #ddd;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 5px;
+  }
 }
+
+
+@media (max-width: 480px) {
+  .info-box {
+    padding: 5px;
+  }
+
+  .info-box h1 {
+    font-size: 30px;
+  }
+
+  .info-box h2 {
+    font-size: 20px;
+  }
+
+  .info-box p {
+    font-size: 14px;
+  }
+
+  .info-bild img {
+    max-width: 100%;
+    height: auto;
+  }
+}
+
 
  /* -------------------------------------3 SPOTS--------------------------------------------------- */
 
@@ -724,9 +865,6 @@ main {
     }
 }
 
- /* ----------------------------------------------------------SLUT PÅ INNEHÅLL-------------------------------------------------- */
-
-
  /* -------------------------------------IKON-FÄLT-------------------------------------------------- */
 
 /* -----------------------INFO-IKON-CONTAINER--------------------------- */
@@ -759,7 +897,7 @@ main {
     transition: transform 0.3s ease-in-out;
 }
 
-/* Hover-effekt bara på innehållet – ej linje */
+
 .icon-link:hover .icon-inner {
     transform: scale(1.1);
 }
@@ -785,7 +923,6 @@ main {
     transition: opacity 0.3s ease-in-out, transform 0.3s ease-in-out;
 }
 
-/* Stil för länktext */
 .icon-text {
     white-space: nowrap;
     margin-top: 8px;
@@ -838,7 +975,7 @@ main {
     padding: 2rem 0;
   }
   
-  /* Desktop */
+ 
   .footer-menu {
     display: grid;
     grid-template-columns: 1fr 1fr;
