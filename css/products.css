@@ -1,0 +1,503 @@
+body {
+  background-color: #EAE6E1;
+  font-family: 'Poppins', sans-serif;
+  margin: 0;
+  padding: 0;
+  min-width: 375px;
+  height: fit-content;
+}
+
+/* -----------------------------------------------------------------INNEHÅLL--------------------------------------------------------------- */
+
+/* ----------------------PRODUKTDETALJ-CONTAINER----------------------------- */
+
+.product-details-container {
+  background-color: #E8E6E1;
+  display: grid;
+  grid-template-columns: minmax(5vw, 1fr) auto auto minmax(5vw, 1fr);
+  gap: 20px;
+  width: 100%;
+  justify-content: center;
+  box-sizing: border-box;
+  align-items: start;
+  z-index: 2;
+  border-top: 3px dashed #6B1A1A;
+  border-bottom: 3px solid #D4B05A;
+  border-left: none;
+  border-right: none;
+  padding-top: 40px;
+  padding-bottom: 40px;
+}
+
+.product-details-container h1 {
+  font-size: 50px;
+  margin-bottom: 8px;
+  margin-top: -20px;
+}
+
+/* Detaljlista - Extra */
+
+.details-list {
+  list-style: none;
+  padding-left: 0;
+  margin-left: 0px;
+}
+
+.details-list li {
+  position: relative;
+  padding-left: 25px;
+  margin-bottom: 6px;
+}
+
+.details-list li::before {
+  content: "\f054";
+  font-family: "Font Awesome 6 Free";
+  font-weight: 900;
+  position: absolute;
+  left: 0;
+  top: 4px;
+  color: #C2A863;
+  font-size: 17px;
+  line-height: 1;
+}
+
+.details-list li:nth-child(odd)::before {
+  color: #C2A863;
+}
+
+.details-list li:nth-child(even)::before {
+  color: #801B1B;
+}
+
+/* Boxar */
+
+.product-image-box,
+.product-description-box {
+  height: 100%;
+  display: flex;
+  align-items: flex-start;
+  justify-content: flex-start;
+  flex-direction: column;
+  border-radius: 8px;
+  overflow: hidden;
+
+}
+
+.product-image-box {
+  position: relative;
+  width: 100%;
+  display: block;
+}
+
+.image-wrapper {
+  position: relative;
+  display: inline-block;
+  width: 100%;
+}
+
+.product-image {
+  width: 100%;
+  height: auto;
+  display: block;
+  object-fit: contain;
+  border-radius: 8px;
+  border: solid 2px #c2a96377;
+}
+
+.product-description-box {
+  background-color: #EAE6E1;
+  flex-direction: column;
+  padding: 15px;
+  color: rgb(0, 0, 0);
+  display: flex;
+  align-items: flex-start;
+  width: 100%;
+}
+
+/* Förstoringsglas */
+
+.zoom-icon {
+  position: absolute;
+  bottom: 10px;
+  right: 10px;
+  font-size: 22px;
+  color: #4A6072;
+  cursor: pointer;
+  z-index: 2;
+  transition: transform 0.2s ease;
+}
+
+.zoom-icon:hover {
+  transform: scale(1.1);
+}
+
+.lightbox {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background-color: rgba(0, 0, 0, 0.8);
+  justify-content: center;
+  align-items: center;
+  z-index: 999;
+}
+
+.lightbox img {
+  max-width: 95%;
+  max-height: 95%;
+  border-radius: 8px;
+}
+
+
+@media (max-width: 1200px) {
+  .product-details-container {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .product-details-container>div:first-child,
+  .product-details-container>div:last-child {
+    display: none;
+  }
+}
+
+
+@media (max-width: 639px) {
+  .product-details-container {
+    grid-template-columns: 1fr;
+  }
+
+  .product-image-box {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+  }
+
+  .image-wrapper {
+    max-width: 80vw;
+    width: 100%;
+  }
+
+  .product-image {
+    width: 100%;
+    height: auto;
+    display: block;
+    object-fit: contain;
+  }
+
+  .product-description-box {
+    width: 100%;
+  }
+
+}
+
+/* -------------------TOGGLE DETAILS KNAPP------------------ */
+
+.toggle-details {
+  display: none;
+  font-size: 16px;
+  padding: 10px 15px;
+  color: #000;
+  cursor: pointer;
+  margin: 10px 0;
+  border: none;
+  background-color: transparent;
+  text-decoration: underline;
+}
+
+
+@media (max-width: 849px) {
+  .toggle-details {
+    display: inline-block;
+  }
+
+  .product-details-extra {
+    display: none;
+  }
+
+  .product-details-extra.visible {
+    display: block;
+  }
+}
+
+
+@media (min-width: 850px) {
+  .toggle-details {
+    display: none;
+  }
+
+  .product-details-extra {
+    display: block;
+  }
+}
+
+
+
+
+/*------------------------KNAPPAR---------------------------*/
+
+/* Lägg i varukorg */
+
+.add-to-cart {
+  background: #C2A863;
+  font-family: inherit;
+  color: #000000;
+  padding: 0.6em 1.3em;
+  width: 250px;
+  font-size: 19px;
+  border: 3px solid #801B1B;
+  border-radius: 0.4em;
+  box-shadow: 0.1em 0.1em 0 0 #ffffff;
+  cursor: pointer;
+  transition: all 0.1s ease-in-out;
+}
+
+.add-to-cart.active {
+  color: #801B1B;
+  font-weight: 900;
+}
+
+.add-to-cart:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em 0 0 #801B1B;
+  color: #801B1B;
+  font-weight: 900;
+}
+
+.add-to-cart:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em 0 0 #801B1B;
+  color: #801B1B;
+  font-weight: 900;
+
+}
+
+.product-price {
+  font-size: 18px;
+  font-weight: bold;
+  background-color: transparent;
+  color: #000000;
+  margin-bottom: 8px;
+}
+
+
+.product-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+/* Hjärtat */
+
+.heart-button {
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 900;
+  font-size: 23px;
+  padding: 0.6em 1.2em;
+  line-height: 1;
+  font-weight: bold;
+  border-radius: 0.4em;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: #C2A863;
+  color: #000000;
+  border: 3px solid #801B1B;
+  box-shadow: 0.1em 0.1em 0 0 #ffffff;
+  cursor: pointer;
+  transition: all 0.2s ease;
+  line-height: 1;
+  width: 44px;
+  min-width: 44px;
+  text-align: center;
+  overflow: hidden;
+}
+
+.heart-button:hover {
+  transform: translate(-0.05em, -0.05em);
+  box-shadow: 0.15em 0.15em 0 0 #801B1B;
+}
+
+.heart-button:active {
+  transform: translate(0.05em, 0.05em);
+  box-shadow: 0.05em 0.05em 0 0 #801B1B;
+}
+
+.heart-button.filled {
+  color: #6B1A1A;
+}
+
+
+/*------------------------BILDKARUSELL---------------------------*/
+
+.carousel-title {
+  text-align: center;
+  font-size: 25px;
+  margin-bottom: 20px;
+  font-weight: bold;
+  color: #000000;
+}
+
+.carousel-container {
+  max-width: 60%;
+  margin: 0 auto;
+  position: relative;
+}
+
+.carousel-wrapper {
+  position: relative;
+  padding: 40px 20px;
+  background-color: #C2A863;
+  border-top: 2px dashed #ffffff;
+  border-bottom: 3px solid #D4B05A;
+}
+
+.carousel {
+  width: 100%;
+  overflow: hidden;
+  position: relative;
+}
+
+.slides {
+  display: flex;
+  transition: transform 0.5s ease-in-out;
+  gap: 20px;
+  padding: 0;
+}
+
+.carousel-item {
+  flex-shrink: 0;
+  width: calc((100% - 2 * 16px - 2 * 8px) / 3);
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  text-align: left;
+  box-sizing: border-box;
+}
+
+.carousel-item a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.carousel-item img {
+  width: 100%;
+  height: auto;
+  border-radius: 8px;
+  transition: transform 0.3s ease;
+  box-shadow: 0 0 4px rgba(0, 0, 0, 0.2);
+  border: 3px solid #D4B05A;
+  display: block;
+}
+
+.carousel-item img:hover {
+  transform: scale(1.01);
+}
+
+.caption-box {
+  background-color: transparent;
+  padding: 8px 0 0 0;
+  box-sizing: border-box;
+}
+
+/* Slide-pilar */
+
+.slide-buttons {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 5px;
+  pointer-events: none;
+  z-index: 999;
+}
+
+.slide-buttons button {
+  pointer-events: auto;
+  background-color: transparent;
+  border: none;
+  cursor: pointer;
+  padding: 0;
+}
+
+.slide-buttons button i {
+  font-size: 35px;
+  color: #4A6072;
+  transition: transform 0.2s ease;
+  text-shadow: 2px 2px 6px rgba(0, 0, 0, 0.4);
+}
+
+.slide-buttons button:first-child {
+  transform: translateX(-30px);
+}
+
+.slide-buttons button:last-child {
+  transform: translateX(30px);
+}
+
+.slide-buttons button:first-child i:hover {
+  transform: translateX(-5px);
+}
+
+.slide-buttons button:last-child i:hover {
+  transform: translateX(5px);
+}
+
+/* Textrutorna under bilderna */
+
+.caption-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  font-weight: 600;
+  margin-bottom: 2px;
+}
+
+.caption-title {
+  font-size: 15px;
+  font-weight: 600;
+  text-decoration: none;
+  color: #000;
+}
+
+.caption-title:hover {
+  text-decoration: underline;
+}
+
+.caption-price {
+  font-size: 15px;
+  font-weight: bold;
+  white-space: nowrap;
+}
+
+.caption-sub {
+  font-size: 10px;
+  color: #000000;
+  margin: 0;
+}
+
+@media screen and (max-width: 1024px) {
+  .carousel-container {
+    max-width: 80%;
+  }
+
+  .nav-buttons {
+    padding: 0 10px;
+  }
+}
+
+@media screen and (max-width: 850px) {
+  .carousel-container {
+    max-width: 95%;
+  }
+}
+
+@media screen and (max-width: 639px) {
+
+  .carousel-wrapper,
+  .carousel-title,
+  .nav-buttons {
+    display: none;
+  }
+}

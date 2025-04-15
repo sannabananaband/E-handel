@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Admin-add</title>
+  <link rel="stylesheet" href="admin-add.css">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+</head>
+
+<body>
+  <header>
+    <h1>Administration</h1>
+  </header>
+  <main>
+    <div class="admin-add-container">
+      <div class="admin-box-sidemenu">
+        <nav class="sidemenu">
+          <a href="admin-product-list.html">Produkter</a>
+          <a href="admin-add-product.html" target="_blank">Lägg till ny produkt</a>
+          <a href="#">Design Susanne</a>
+        </nav>
+      </div>
+      <div class="admin-box-addform">
+        <form id="add-form">
+          <label for="namn">Namn:</label>
+          <input type="text" id="namn" name="namn" placeholder="Ange namn" required>
+
+          <label for="beskrivning">Beskrivning:</label>
+          <textarea id="beskrivning" name="beskrivning" placeholder="Ange beskrivning" required></textarea>
+
+          <label for="bild">Bildfil:</label>
+          <input type="file" id="bild" name="bild" accept="image/png, image/jpeg, image/jpg" required>
+
+          <label for="sku">SKU (XXXYYY):</label>
+          <input type="text" id="sku" name="sku" placeholder="Ange SKU" required>
+          <div class="error" id="skuError"></div>
+
+          <label for="pris">Pris:</label>
+          <input type="number" id="pris" name="pris" step="0.01" min="0" required>
+
+          <label for="datum">Publiceringsdatum:</label>
+          <input type="date" id="datum" name="datum" required>
+
+
+          <label for="pärlat">Kategorier:</label>
+          <div id="kategorier" class="admin-checkbox">
+            <input type="checkbox" id="pärlat" name="kategorier">
+            <label for="pärlat">Pärlat</label>
+          </div>
+          <div class="admin-checkbox">
+            <input type="checkbox" id="stickat" name="kategorier">
+            <label for="stickat">Stickat</label>
+          </div>
+          <div class="admin-checkbox">
+            <input type="checkbox" id="virkat" name="kategorier">
+            <label for="virkat">Virkat</label>
+          </div>
+          <div class="admin-checkbox">
+            <input type="checkbox" id="vävt" name="kategorier">
+            <label for="vävt">Vävt</label>
+          </div>
+          <div class="admin-checkbox">
+            <input type="checkbox" id="broderat" name="kategorier">
+            <label for="broderat">Broderat</label>
+          </div>
+
+          <button type="submit">Lägg till</button>
+        </form>
+
+      </div>
+    </div>
+  </main>
+  <script>
+    document.getElementById('addform').addEventListener('submit', function (e) {
+      const sku = document.getElementById('sku').value.trim();
+      const skuError = document.getElementById('skuError');
+      const regex = /^[A-Za-z]{3}\d{3}$/;
+
+      if (!regex.test(sku)) {
+        e.preventDefault();
+        skuError.textContent = "SKU måste följa formatet XXXYYY (3 bokstäver följt av 3 siffror).";
+      } else {
+        skuError.textContent = "";
+      }
+    });
+  </script>
+</body>
+
+</html>
